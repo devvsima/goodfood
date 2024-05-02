@@ -1,0 +1,47 @@
+.productcol {
+  margin-left: 100px;
+  padding-top: 30px;
+}
+* {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 12;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+
+body {
+  background-color: #ffffff; /* Білий колір фону */
+}
+nav {
+  background-color: #ffffff; /* Білий колір фону */
+}
+.card {
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Обводка картки */
+  background-color: rgba(255, 255, 255, 0.8); /* Прозорий білий колір фону */
+}
+.card-footer button.btn-primary {
+  background-color: #5c49499a; /* Зелений колір для кнопок */
+  border-color: #28a74600;
+}
+.card-footer button.btn-primary:hover {
+  background-color: #271e1e9a; /* Темно-зелений колір при наведенні */
+  border-color: #28a74600;
+}
+footer {
+  background-color: #f8f9fa; /* Світло-сірий колір фону */
+  padding: 20px 0;
+  text-align: center;
+}
+.social-icons {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.social-icons a {
+  margin: 0 10px;
+  color: #000; /* Колір іконок */
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #007bff; /* Колір іконок при наведенні */
+}

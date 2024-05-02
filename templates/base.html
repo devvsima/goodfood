@@ -1,99 +1,71 @@
 {%load static%}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom/style.css' %}">
+  </head>
+  <body>
 
-  {% block title %}{% endblock title %}
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <!-- Логотип та назва магазину -->
+        <a class="navbar-brand" href="#">EASY4U</a>
 
-  
-  <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/custom/style.css' %}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-</head>
+        <!-- Кнопка для мобільних пристроїв (відображається при вузькому екрані) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-</html>
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'main:index'%}">Salamis</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- нафигация -->
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"
-              href="{% url 'goods:index' category_slug='all' %}">Каталог</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'main:about' %}">Про нас</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal" style="cursor: pointer;">
-              Кошик
-            </a>
-            
-
-            <!-- Модальное окно -->
-            {% include "carts\includes\included_cart.html" %}
-          </li>
-          {% if not user.is_authenticated %}
-            
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user:login' %}">Війти</a>
-          </li>
-          {% else%}
-          <!-- выпадающее меню -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">Профіль</a>
-            <ul class="dropdown-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user:profile' %}">Кабінет</a>
-              </li>
-              {% if user.is_admin or user.is_staff %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
-              </li>
-              {% endif %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user:logout' %}">Вийти</a>
-              </li>
-            </ul>
-          </li>
-          {% endif %}
-
-        </ul>
+        <!-- Навігаційне меню -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Головна</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Про нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Продукція</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Контакти</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
-      <!-- поиск -->
-      <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method='get'>
-        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary" type="submit">Пошук</button>
-      </form>
-    </div>
-  </nav>
 
-  {% block content %}
-  {% endblock content %}
-  
-  {% include "notifications.html" %}
-  <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-<footer class="py-4 bg-white">
-  <div class="container">
-    <p class="m-0 text-center text-black">Salamis 2024</p>
-  </div>
-</footer>
+    <footer>
+      <div class="container">
+        <div class="social-icons mb-3">
+          <a href="#" title="Facebook"><i class="fab fa-facebook"
+              style="color: #3b5998;"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"
+              style="color: #00aced;"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"
+              style="color: #3f729b;"></i></a>
+        </div>
+        <span class="mr-2">info@example.com</span>
+        <span>(123) 456-7890</span>
+
+        <p>&copy; 2024 EASY4U. Усі права захищені.</p>
+      </div>
+    </footer>
+
+    <!-- Підключаємо скрипти Bootstrap (jQuery та Popper.js) -->
+    <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин здорового питания</title>
+  <!-- Подключаем стили Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/custom/style.css">
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <!-- Логотип и название магазина -->
+    <a class="navbar-brand" href="#">EASY4U</a>
+
+    <!-- Кнопка для мобильных устройств (отображается при узком экране) -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Навигационное меню -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Кошик</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Каталог</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Про нас</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Профіль</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <!-- Фильтры и сортировка -->
+  <div class="row mb-4">
+    <div class="col-md-4 mb-2">
+      <select class="form-control">
+        <option value="">Все категории</option>
+        <option value="fruits">Фрукты</option>
+        <option value="vegetables">Овощи</option>
+        <option value="grains">Зерновые</option>
+        <!-- Добавьте другие категории по вашему выбору -->
+      </select>
+    </div>
+    <div class="col-md-4 mb-2">
+      <select class="form-control">
+        <option value="asc">По возрастанию цены</option>
+        <option value="desc">По убыванию цены</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Каталог товаров -->
+  <div class="row" id="productCatalog">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 1</h4>
+          <h5>$24.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 2</h4>
+          <h5>$19.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/maltitol-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/olija-z-nasinnja-lonu-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/arahis-smazhenij-ta-solenij-2-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="social-icons mb-3">
+      <a href="#" title="Facebook"><i class="fab fa-facebook" style="color: #3b5998;"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-twitter" style="color: #00aced;"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram" style="color: #3f729b;"></i></a>
+    </div>
+    <span class="mr-2">info@example.com</span>
+    <span>(123) 456-7890</span>
+
+    <p>&copy; 2024 EASY4U. Усі права захищені.</p>
+  </div>
+</footer>
+
+<!-- Підключаємо скрипти Bootstrap (jQuery та Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<!-- Підключаємо скрипт Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Підключаємо іконки Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>

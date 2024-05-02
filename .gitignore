@@ -1,0 +1,11 @@
+.idea
+.fleet
+.vscode
+.venv
+.sqlite
+database.sqlite3
+**/__pycache__
+
+**/.env
+**/logs
+**/goods_images

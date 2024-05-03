@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{%load static%}
+
+
+{% block content %}
+<div class="container mt-4">
+  <!-- Фильтры и сортировка -->
+  <div class="row mb-4">
+    <div class="col-md-4 mb-2">
+      <select class="form-control">
+        <option value="">Все категории</option>
+        <option value="fruits">Фрукты</option>
+        <option value="vegetables">Овощи</option>
+        <option value="grains">Зерновые</option>
+        <!-- Добавьте другие категории по вашему выбору -->
+      </select>
+    </div>
+    <div class="col-md-4 mb-2">
+      <select class="form-control">
+        <option value="asc">По возрастанию цены</option>
+        <option value="desc">По убыванию цены</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Каталог товаров -->
+  <div class="row" id="productCatalog">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 1</h4>
+          <h5>$24.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 2</h4>
+          <h5>$19.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://via.placeholder.com/300" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/maltitol-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/olija-z-nasinnja-lonu-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="https://greenfood.in.ua/image/cache/catalog/tovar/arahis-smazhenij-ta-solenij-2-540x540.jpg" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Продукт 3</h4>
+          <h5>$14.99</h5>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-block">Додати в кошик</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

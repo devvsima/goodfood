@@ -9,13 +9,15 @@
 
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/style.css' %}">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <!-- Логотип та назва магазину -->
-        <a class="navbar-brand" href="#">EASY4U</a>
+        <a class="navbar-brand" href="{% url 'main:index' %}">EASY4U</a>
 
         <!-- Кнопка для мобільних пристроїв (відображається при вузькому екрані) -->
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -28,22 +30,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Головна</a>
+              <a class="nav-link" href="#">Кошик</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'catalog:catalog' %}">Каталог</a>
+            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="#">Про нас</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Продукція</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Контакти</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
+    {% block content %}
+      
+    {% endblock content %}
 
     <footer>
       <div class="container">

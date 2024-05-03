@@ -1,1 +1,1 @@
-web: gunicorn salamis.wsgi
+web: gunicorn goodfood.wsgi

@@ -9,7 +9,10 @@
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
 }
-
+a {
+  color: #521d1d; /* Черный цвет для ссылок */
+  /* text-decoration: none; */
+}
 body {
   background-color: #ffffff; /* Білий колір фону */
 }
@@ -25,7 +28,7 @@ nav {
   border-color: #28a74600;
 }
 .card-footer button.btn-primary:hover {
-  background-color: #271e1e9a; /* Темно-зелений колір при наведенні */
+  background-color: #443333d2; /* Темно-зелений колір при наведенні */
   border-color: #28a74600;
 }
 footer {

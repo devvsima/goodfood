@@ -31,7 +31,23 @@
         <!-- Навігаційне меню -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            
+            {% if not user.is_authenticated %}  
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:login' %}">Війти</a>
+              </li>
+            {% else%}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:logout' %}">Вийти</a>
+              </li>
+            {% endif %}
+
+
+            {% if user.is_admin or user.is_staff %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
+              </li>
+            {% endif %}
+
             <li class="nav-item active">
               <a class="nav-link" href="#">Кошик</a>
             </li>
@@ -41,11 +57,11 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="#">Контакти</a>
+              <a class="nav-link" href="{% url 'main:contact' %}">Контакти</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">Про нас</a>
+              <a class="nav-link" href="{% url 'main:info' %}">Про нас</a>
             </li>
           </ul>
         </div>

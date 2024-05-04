@@ -20,38 +20,22 @@
       <div class="container">
         <!-- Логотип та назва магазину -->
         <a class="navbar-brand" href="{% url 'main:index' %}">EASY4U</a>
-
+    
         <!-- Кнопка для мобільних пристроїв (відображається при вузькому екрані) -->
         <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarNav" aria-controls="navbarNav"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+        
+    
         <!-- Навігаційне меню -->
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            {% if not user.is_authenticated %}  
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user:login' %}">Війти</a>
-              </li>
-            {% else%}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'user:logout' %}">Вийти</a>
-              </li>
-            {% endif %}
-
-
-            {% if user.is_admin or user.is_staff %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">Адмін панель</a>
-              </li>
-            {% endif %}
-
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Кошик</a>
+              <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Кошик</a>
             </li>
-
+    
             <li class="nav-item">
               <a class="nav-link" href="{% url 'catalog:catalog' category_slug='all' %}">Каталог</a>
             </li>
@@ -59,14 +43,34 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'main:contact' %}">Контакти</a>
             </li>
-
+    
             <li class="nav-item">
               <a class="nav-link" href="{% url 'main:info' %}">Про нас</a>
             </li>
           </ul>
+          
+          <ul class="navbar-nav ml-auto"> <!-- Элементы справа -->
+            {% if user.is_admin or user.is_staff %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}"><i class="fas fa-user-cog"></i> Адмін панель</a>
+              </li>
+            {% endif %}
+            
+            {% if not user.is_authenticated %}  
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:login' %}"><i class="fas fa-sign-in-alt"></i> Війти</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'user:logout' %}"><i class="fas fa-sign-out-alt"></i> Вийти</a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
       </div>
     </nav>
+    
+    
     {% block content %}
       
     {% endblock content %}

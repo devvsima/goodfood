@@ -1,5 +1,64 @@
 {% extends "base.html" %}
 {%load static%}
 {% block content %}
-info
+<section class="about-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <img src="about_image.jpg" alt="Про нас" class="img-fluid rounded mb-4">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="section-title mb-4">Про нас</h2>
+        <p>Ласкаво просимо до нашого інтернет-магазину Easy4U! Ми - команда професіоналів, які працюють у сфері інтернет-торгівлі, щоб зробити ваші покупки легкими і приємними.</p>
+        <p>Наш магазин пропонує великий вибір товарів від відомих виробників, які забезпечують високу якість і надійність. Ми постійно працюємо над розширенням асортименту, щоб задовольнити потреби кожного клієнта.</p>
+        <p>Наша мета - зробити ваші покупки зручними та надійними. Ми завжди готові допомогти вам з вибором товарів і відповісти на всі ваші питання.</p>
+        <div class="mt-4">
+          <h4>Наші переваги</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-shipping-fast mr-2 text-primary"></i> Швидка доставка
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-box-open mr-2 text-primary"></i> Великий вибір товарів
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-handshake mr-2 text-primary"></i> Надійність і професіоналізм
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-coins mr-2 text-primary"></i> Прийнятні ціни
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-12">
+        <h3 class="section-title mb-4 text-center">Наша команда</h3>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="team-member">
+          <img style="height: 600px;" src="{% static 'images/ivan.jpg' %}" alt="Команда 1" class="img-fluid rounded-circle mb-3">
+          <h5 class="text-center mb-0">Іван Петров</h5>
+          <p class="text-center text-muted">Директор</p>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="team-member">
+          <img style="height: 600px;" src="{% static 'images/maria.jpg' %}" alt="Команда 2" class="img-fluid rounded-circle mb-3">
+          <h5 class="text-center mb-0">Марія Сидорова</h5>
+          <p class="text-center text-muted">Менеджер з продажу</p>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="team-member">
+          
+          <img style="height: 600px;" src="{% static 'images/oleksandr.jpg' %}" alt="Команда 3" class="img-fluid rounded-circle mb-3">
+          <h5 class="text-center mb-0">Олександр Коваленко</h5>
+          <p class="text-center text-muted">Клієнтський менеджер</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% endblock content %}

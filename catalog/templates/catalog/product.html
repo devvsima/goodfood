@@ -45,7 +45,7 @@
           </div>
           <div class="card-footer text-center" style="background-color: rgba(239, 237, 237, 0.902);">
             <h5 class="card-title">{{product.discount_price}}грн</h5>
-            <a href="#" class="btn">Додати до кошика</a>.
+            <a href="{% url 'cart:cart_add' product.slug %}" class="btn">Додати до кошика</a>.
           </div>
         </div>
       </div>

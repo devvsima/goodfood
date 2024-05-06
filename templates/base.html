@@ -33,9 +33,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Кошик</a>
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#cartModal" style="cursor: pointer;"><i class="fas fa-shopping-cart"></i> Кошик</a>
             </li>
-    
+            {% include "carts\includes\included_cart.html" %}
+            
             <li class="nav-item">
               <a class="nav-link" href="{% url 'catalog:catalog' category_slug='all' %}">Каталог</a>
             </li>

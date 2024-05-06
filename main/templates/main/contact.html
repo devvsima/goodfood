@@ -1,5 +1,62 @@
 {% extends "base.html" %}
 {%load static%}
+
+{% block title %}
+  {{title}}
+{% endblock title %}
+
 {% block content %}
-contact
+<section class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-4">Контакти</h2>
+        <p>Ми завжди готові відповісти на ваші запитання та надати допомогу. Зв'яжіться з нами за допомогою форми зв'язку або контактних даних нижче:</p>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-map-marker-alt mr-2"></i> Вулиця, місто, країна, Поштовий індекс</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (066) 123-45-67 (Київстар)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (067) 123-45-67 (Київстар)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (096) 123-45-67 (Київстар)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (095) 123-45-67 (Vodafone)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (099) 123-45-67 (Vodafone)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (098) 123-45-67 (Vodafone)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (063) 123-45-67 (lifecell)</li>
+          <li><i class="fas fa-phone mr-2"></i> +38 (093) 123-45-67 (lifecell)</li>
+          <li><i class="fas fa-envelope mr-2"></i> info@example.com</li>
+          <li><i class="fab fa-facebook mr-2"></i> <a href="#">Facebook</a></li>
+          <li><i class="fab fa-twitter mr-2"></i> <a href="#">Twitter</a></li>
+          <li><i class="fab fa-instagram mr-2"></i> <a href="#">Instagram</a></li>
+          <li><i class="fab fa-telegram mr-2"></i> <a href="#">Telegram</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <form action="#" method="post">
+          {% csrf_token %}
+          <br>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ваше ім'я" required>
+          </div>
+          <br>
+
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Ваш Email" required>
+          </div>
+          <br>
+
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Ваше повідомлення" required></textarea>
+          </div>
+          <br>
+          <button type="submit" style="color:white; background: #624325bf" class="btn btn">Надіслати</button>
+        
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock content %}

@@ -1,189 +1,54 @@
-<!-- {% load static %}
+{% load static %}
 {% load carts_tags %}
-
 {% user_carts request as carts %}
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Кошик</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрить"></button>
-      </div>
-      {% for cart in carts %}
 
-      <div class="modal-body">
-        <div class="row">
-          <div class="card mb-3 text-bg-light shadow-lg">
-            <div class="card-header">
-              <div class="card-title">{{cart.product.name}}
-                <a href="{% url 'cart:cart_remove' cart.id %}" type="button" class="btn-close" aria-label="Close"></a>
-                {% csrf_token %}
-              </div>
-
-              {{cart.product.discount_price}} грн
-              <div class="col-6">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <a style="color:white; background: #624325bf;" type="button" class="btn btn-secondary btn-sm decrement" data-cart-id
-                      data-cart-change-url>-</a>
-                  </span>
-
-                  <input type="text" class="form-control number" value="{{cart.quantity}}" readonly>
-                  <span class="input-group-btn">
-                    
-                    <a style="color:white; background: #624325bf;" href="{% url 'cart:cart_add' cart.product.slug %}" type="button"
-                      class="btn btn-secondary btn-sm increment"
-                      data-cart-id data-cart-change-url>+</a>
-                  </span>
-                  
-                  <p style="padding-left: 10px;">= {{cart.products_price}} грн</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      <div class="modal-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              Кількість товарів: {{carts.total_quantity}}
-            </div>
-            <div class="col">
-              Ітогова ціна: {{carts.total_price}}
-            </div>
-          </div>
-          <br>
-          <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-              {% if carts %}
-
-              <a href="{% url 'orders:create_order' %}" type="button" style="color:white; background: #624325bf; width: 200px;"
-                class="btn btn-secondary">Замовити</a>
-
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>  
- -->
- <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="cartModalLabel">Корзина</h5>
+        <h5 class="modal-title" id="cartModalLabel">Кошик</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      {% for cart in carts %}
       <div class="modal-body">
-        <!-- Содержимое корзины -->
         <div class="row item">
           <div class="col-md-3">
-            <img src="https://via.placeholder.com/150" alt="Товар 1" class="img-fluid">
+            <img src="{{cart.product.image.url}}" alt="фото" class="img-fluid">
           </div>
           <div class="col-md-6">
-            <p>Товар 1 - $10</p>
+            <p>{{cart.product.name}} - {{cart.product.discount_price}} грн</p>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
+                <a href="{% url 'cart:cart_change' cart.product.slug %}" class="btn btn-outline-secondary btn-minus" type="button">-</a>
               </div>
-              <input type="text" class="form-control quantity-input" value="1">
+              <input type="text" class="form-control quantity-input" value="{{cart.quantity}}">
               <div class="input-group-append">
-                <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
+                <a href="{% url 'cart:cart_add' cart.product.slug %}" class="btn btn-outline-secondary btn-plus" type="button">+</a>
               </div>
             </div>
           </div>
           <div class="col-md-3">
-            <p>Итого: $<span class="total-price">10</span></p>
-          </div>
-        </div>
-        <hr>
-        <div class="row item">
-          <div class="col-md-3">
-            <img src="https://via.placeholder.com/150" alt="Товар 2" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-            <p>Товар 2 - $15</p>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-              </div>
-              <input type="text" class="form-control quantity-input" value="1">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <p>Итого: $<span class="total-price">15</span></p>
-          </div>
-        </div>
-        <hr>
-        <div class="row item">
-          <div class="col-md-3">
-            <img src="https://via.placeholder.com/150" alt="Товар 3" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-            <p>Товар 3 - $20</p>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-              </div>
-              <input type="text" class="form-control quantity-input" value="1">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <p>Итого: $<span class="total-price">20</span></p>
+            <p>Ітого: <span class="total-price"> {{cart.products_price}}</span></p>
           </div>
         </div>
       </div>
+      <hr>
+      {% endfor %}
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Оформить заказ</button>
+        <p>Ітогова ціна: {{carts.total_price}}   </p>
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+        <a href="{% url 'orders:done_order' user.id %}" type="button" style="background-color: #624325bf; border-color:rgba(255, 255, 255, 0)" class="btn btn-primary">Замовити</a>
+
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  $(document).ready(function(){
-    // Обработчики кнопок + и -
-    $('.btn-plus').click(function(){
-      var input = $(this).parent().prev('.quantity-input');
-      var newValue = parseInt(input.val()) + 1;
-      input.val(newValue);
-      calculateTotalPrice($(this));
-    });
 
-    $('.btn-minus').click(function(){
-      var input = $(this).parent().next('.quantity-input');
-      var newValue = parseInt(input.val()) - 1;
-      if(newValue < 1) newValue = 1; // Чтобы количество не стало меньше 1
-      input.val(newValue);
-      calculateTotalPrice($(this));
-    });
-
-    // Расчет общей цены при изменении количества товаров
-    $('.quantity-input').change(function(){
-      calculateTotalPrice($(this));
-    });
-
-    function calculateTotalPrice(element){
-      var pricePerItem = parseFloat(element.closest('.item').find('.total-price').text());
-      var quantity = parseInt(element.closest('.item').find('.quantity-input').val());
-      var totalPrice = pricePerItem * quantity;
-      element.closest('.item').find('.total-price').text(totalPrice.toFixed(2));
-    }
-  });
-</script>
 
 </body>
 </html>

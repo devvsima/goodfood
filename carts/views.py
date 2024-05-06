@@ -22,11 +22,22 @@ def cart_add(request, product_slug):
     return redirect(request.META["HTTP_REFERER"])
 
 def cart_change(request, product_slug):
-    context = {
-        "title": 'Carts',
-    }
+    product = Goods.objects.get(slug=product_slug)
 
-    return render(request, "", context)
+    if request.user.is_authenticated:
+        carts = Cart.objects.filter(user=request.user, product=product)
+
+        if carts.exists():
+            cart = carts.first()
+            if cart:
+                if cart.quantity > 1:
+                    cart.quantity += -1
+                    cart.save()
+                else:
+                    cart = Cart.objects.get(id=cart.id)
+                    cart.delete()
+    return redirect(request.META["HTTP_REFERER"])
+
 
 def cart_remove(request, cart_id):
     cart = Cart.objects.get(id=cart.id)

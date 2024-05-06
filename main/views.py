@@ -9,12 +9,12 @@ def index(request) -> HttpResponse:
 
 def info(request) -> HttpResponse:
     context = {
-        "title": 'Info',
+        "title": 'Про нас',
     }
     return render(request, 'main/info.html', context)
 
 def contact(request) -> HttpResponse:
     context = {
-        "title": 'Info',
+        "title": 'Контакти',
     }
     return render(request, 'main/contact.html', context)

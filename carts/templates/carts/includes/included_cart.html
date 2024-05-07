@@ -7,9 +7,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="cartModalLabel">Кошик</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
       </div>
       {% for cart in carts %}
       <div class="modal-body">
@@ -38,10 +36,10 @@
       {% endfor %}
 
       <div class="modal-footer">
-        <p>Ітогова ціна: {{carts.total_price}}   </p>
+        <p>Ітогова ціна: {{carts.total_price}}</p>
         
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-        <a href="{% url 'orders:done_order' user.id %}" type="button" style="background-color: #624325bf; border-color:rgba(255, 255, 255, 0)" class="btn btn-primary">Замовити</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+        <a href="{% url 'orders:done_order' user.id %}" data-dismiss="modal" type="button" style="background-color: #624325bf; border-color:rgba(255, 255, 255, 0)" class="btn btn-primary">Замовити</a>
 
       </div>
     </div>

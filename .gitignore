@@ -5,6 +5,10 @@
 .sqlite
 database.sqlite3
 **/__pycache__
+**/staticfiles
+**/nohup.out
+
+
 
 **/.env
 **/logs

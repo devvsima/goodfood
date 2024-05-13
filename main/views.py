@@ -9,7 +9,7 @@ def index(request) -> HttpResponse:
 
 def info(request) -> HttpResponse:
     context = {
-        "title": 'Про нас',
+        "title": 'Про EASY4U',
     }
     return render(request, 'main/info.html', context)
 

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
 
+
 def registration(request):
     if request.method == 'POST':
         form = UserRegistrationForm(data=request.POST)
@@ -14,45 +15,47 @@ def registration(request):
             user = form.instance
             auth.login(request, user)
             return HttpResponseRedirect(reverse('main:index'))
-    else:   
+    else:
         form = UserRegistrationForm()
 
     context = {
-        'title': "registration",
+        'title': "Регістрація",
         'form': form
     }
 
     return render(request, 'users/registration.html', context)
- 
+
+
 def login(request):
-    
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
-            username = request.POST['username']
             password = request.POST['password']
+            username = request.POST['username']
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                messages.success(request ,f"{username}, ви війшли в аккаунт!")
+                messages.success(request, f"{username}, ви зайшли в акаунт!")
                 redirect_page = request.POST.get('next', None)
                 if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.POST.get('next'))
                 return redirect(reverse('main:index'))
-    else:   
+    else:
         form = UserLoginForm()
 
     context = {
-        'title': "Login",
+        'title': "Вхід",
         'form': form
     }
 
     return render(request, 'users/login.html', context)
 
+
 @login_required
 def logout(request):
     auth.logout(request)
     return redirect(reverse('main:index'))
+
 
 @login_required
 def profile(request):
@@ -60,19 +63,17 @@ def profile(request):
         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
             form.save()
-            
-            # if request.POST.get('next', None): 
-            #     return HttpResponseRedirect(request.POST.get('next'))
             return HttpResponseRedirect(reverse('user:profile'))
-    else:   
+    else:
         form = ProfileForm(instance=request.user)
 
     context = {
-        'title': "Profile",
+        'title': "Профіль",
         'form': form
     }
 
     return render(request, 'users/profile.html', context)
+
 
 def users_cart(request):
     return render(request, "users/users_cart.html")

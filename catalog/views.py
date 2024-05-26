@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, SearchHeadline
 from django.core.paginator import Paginator
-from .models import Goods, Categories
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, SearchHeadline 
-from django.db.models import Q
+from django.shortcuts import render
+
+from .models import Goods
+
 
 # Create your views here.
 def catalog(request, category_slug=None):
     page = request.GET.get("page", 1)
     on_sale = request.GET.get("on_sale", None)
     order_by = request.GET.get("order_by", None)
-    query = request.GET.get("q", None) 
-
+    query = request.GET.get("q", None)
 
     if category_slug == "all":
         goods = Goods.objects.all()
@@ -19,12 +19,10 @@ def catalog(request, category_slug=None):
     else:
         goods = Goods.objects.filter(category__slug=category_slug)
 
-
     if on_sale:
         goods = goods.filter(discount__gt=0)
     if order_by and order_by != 'default':
         goods = goods.order_by(order_by)
-
 
     paginator = Paginator(goods, 6)
     current_page = paginator.page(int(page))
@@ -35,6 +33,7 @@ def catalog(request, category_slug=None):
     }
 
     return render(request, 'catalog/catalog.html', context)
+
 
 def product(request, product_slug=False, product_id=False):
     if product_slug:

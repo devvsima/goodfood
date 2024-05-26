@@ -5,7 +5,6 @@ class Categories(models.Model):
     name = models.CharField(max_length=200, unique=True, verbose_name="Назва")
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name="URL")
 
-
     class Meta:
         db_table = "category"
         verbose_name = "категорію"
@@ -13,6 +12,7 @@ class Categories(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
 
 class Goods(models.Model):
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, verbose_name="Категорія")
@@ -24,7 +24,6 @@ class Goods(models.Model):
     image = models.ImageField(upload_to="goods_images", blank=True, null=True, verbose_name="Фотографія")
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name="URL")
 
-
     class Meta:
         db_table = "product"
         verbose_name = "товар"
@@ -34,6 +33,5 @@ class Goods(models.Model):
     def __str__(self) -> str:
         return f"{self.name} - {self.quantity}"
 
-    
     def discount_price(self):
-        return round(self.price - self.price*self.discount/100, 2)
+        return round(self.price - self.price * self.discount / 100, 2)

@@ -13,10 +13,8 @@ urlpatterns = [
     path('user/', include('users.urls', namespace='user')),
     path('cart/', include('carts.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
-
-
-
 ]
+
 if DEBUG:
     urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
     urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

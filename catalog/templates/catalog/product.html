@@ -3,7 +3,7 @@
 {% load goods_tags %}
 
 {% block title %}
-  {{ product.name }}
+{{ product.name }}
 {% endblock title %}
 
 {% block content %}
@@ -11,10 +11,10 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card product-card>
-        <div class="card-body">
-      
-      <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
-        </div>
+        <div class=" card-body ">
+
+                <img src=" {{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+      </div>
     </div>
 
     <div class="col-md-6">
@@ -30,11 +30,12 @@
         </div>
       </div>
       <div class="card product-card mb-2 text-center">
-          <h5 class="card-title">{{ product.discount_price }} грн</h5>
-          <a style="background-color: #624325bf; border-color:rgba(255, 255, 255, 0)" href="{% url 'cart:cart_add' product.slug %}" class="btn btn-primary">Додати до кошика</a>
-        </div>
+        <h5 class="card-title">{{ product.discount_price }} грн</h5>
+        <a style="background-color: #624325bf; border-color:rgba(255, 255, 255, 0)"
+          href="{% url 'cart:cart_add' product.slug %}" class="btn btn-primary">Додати до кошика</a>
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endblock content %}
